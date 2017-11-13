@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="VocabularyWords.View.WordView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Text="{Binding Word}"/>
+        <TextBlock Grid.Column="2" Text="{Binding Count}"/>
+
+    </Grid>
+</UserControl>
