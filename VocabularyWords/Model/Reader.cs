@@ -17,6 +17,8 @@ namespace VocabularyWords.Model
         /// <param name="error"></param>
         public delegate void ShowMessage(string error);
 
+        readonly char[] separators = new char[] { ' ', '.', ',', '!', '?', '»', '«' };
+
         /// <summary>
         /// Словарь
         /// </summary>
@@ -36,9 +38,9 @@ namespace VocabularyWords.Model
                         using (var read = new StreamReader(file, Encoding.Default))
                             while (!read.EndOfStream)
                             {
-                                var separators = new char[] { ' ', '.', ',', '!', '?', '»', '«' };
                                 var words = read.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-                                Parallel.ForEach(words, word => _vocabilaries.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1));
+                                foreach (string word in words)
+                                    _vocabilaries.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
                             }
                     });                    
                 }

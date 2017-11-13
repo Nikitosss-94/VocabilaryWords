@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Threading;
-using VocabularyWords.Command;
 using VocabularyWords.Model;
 
 namespace VocabularyWords.ViewModel
@@ -20,7 +13,7 @@ namespace VocabularyWords.ViewModel
 
         #region Binding
 
-        public ObservableCollection<WordViewModel> Words { get; private set; }
+        public ObservableCollection<Wordmodel> Words { get; private set; }
 
         private string _path;
         public string Path
@@ -96,7 +89,7 @@ namespace VocabularyWords.ViewModel
 
         public MainWindowViewModel()
         {
-            Words = new ObservableCollection<WordViewModel>();
+            Words = new ObservableCollection<Wordmodel>();
         }
     }
 }

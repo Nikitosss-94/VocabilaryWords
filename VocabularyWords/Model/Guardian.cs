@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VocabularyWords.ViewModel;
 
 namespace VocabularyWords.Model
 {
@@ -12,20 +8,20 @@ namespace VocabularyWords.Model
     /// </summary>
     internal static class Guardian
     {
-        static Stack<WordViewModel> _words = new Stack<WordViewModel>();
+        static Stack<Wordmodel> _words = new Stack<Wordmodel>();
 
         /// <summary>
         /// Возвращает коллекцию слов
         /// </summary>
         /// <returns></returns>
-        internal static List<WordViewModel> GetWords() =>
+        internal static List<Wordmodel> GetWords() =>
             _words.ToList();
 
         /// <summary>
         /// Добавляет слово в хранилище
         /// </summary>
         /// <param name="word">Элементарная частица</param>
-        internal static WordViewModel Push(string word, int count)
+        internal static Wordmodel Push(string word, int count)
         {
             _words.Push(Factory.CreateWord(word, count));
             return _words.Peek();
@@ -42,9 +38,9 @@ namespace VocabularyWords.Model
 
         static class Factory
         {
-            internal static WordViewModel CreateWord(string word, int count)
+            internal static Wordmodel CreateWord(string word, int count)
             {
-                return new WordViewModel(word, count);
+                return new Wordmodel(word, count);
             }
         }
     }
