@@ -30,18 +30,14 @@ namespace VocabularyWords.Model
         /// <summary>
         /// очищает хранилище
         /// </summary>
-        internal static void Clear()
-        {
+        internal static void Clear() =>
             _words.Clear();
-        }
 
 
         static class Factory
         {
-            internal static Wordmodel CreateWord(string word, int count)
-            {
-                return new Wordmodel(word, count);
-            }
+            internal static Wordmodel CreateWord(string word, int count) =>
+                new Wordmodel(word, count);
         }
     }
 }

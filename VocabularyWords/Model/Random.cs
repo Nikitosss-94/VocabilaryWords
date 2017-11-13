@@ -12,7 +12,7 @@ namespace VocabularyWords.Model
         /// <summary>
         /// передача выбранного слова 
         /// </summary>
-        /// <param name="word"></param>
+        /// <param name="word">выбранное слово</param>
         public delegate void Write(KeyValuePair<string, int> word);
 
         Reader _reader;
@@ -22,7 +22,7 @@ namespace VocabularyWords.Model
         /// <summary>
         /// запуск таймера для выбора случайного слова
         /// </summary>
-        /// <param name="reader"></param>
+        /// <param name="reader">Экземпляр объекта читающего текстовые файлы</param>
         /// <param name="write"></param>
         public Random(Reader reader, Write write)
         {

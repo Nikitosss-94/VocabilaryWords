@@ -74,18 +74,11 @@ namespace VocabularyWords.ViewModel
 
         #endregion
 
-        private void ShowMessage(string error)
-        {
+        private void ShowMessage(string error) =>
             MessageBox.Show(error);
-        }
 
-        private void AddWords(KeyValuePair<string, int> word)
-        {
-            System.Windows.Application.Current.Dispatcher.BeginInvoke((Action)delegate
-            {
-                Words.Add(Guardian.Push(word.Key, word.Value));
-            });
-        }
+        private void AddWords(KeyValuePair<string, int> word) =>
+            System.Windows.Application.Current.Dispatcher.Invoke(() => Words.Add(Guardian.Push(word.Key, word.Value)));
 
         public MainWindowViewModel()
         {

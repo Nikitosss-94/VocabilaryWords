@@ -14,7 +14,7 @@ namespace VocabularyWords.Model
         /// <summary>
         /// возникновение ошибки при обращении к каталогу
         /// </summary>
-        /// <param name="error"></param>
+        /// <param name="error">Информация об ошибке</param>
         public delegate void ShowMessage(string error);
 
         readonly char[] separators = new char[] { ' ', '.', ',', '!', '?', '»', '«' };
@@ -35,7 +35,7 @@ namespace VocabularyWords.Model
                     _vocabilaries = new ConcurrentDictionary<string, int>();
                     Parallel.ForEach(filePaths, file =>
                     {
-                        using (var read = new StreamReader(file, Encoding.Default))
+                        using (var read = new StreamReader(file))
                             while (!read.EndOfStream)
                             {
                                 var words = read.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
@@ -45,7 +45,7 @@ namespace VocabularyWords.Model
                     });                    
                 }
                 else
-                    message("Каталог пуст, выберите другой каталог");
+                    message(" В выбранном каталоге не найдоно текстовых файлов. Выберите другой каталог");
             }
             else
                 message("Каталог не существует, выберите другой каталог");
